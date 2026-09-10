@@ -104,7 +104,7 @@
         "highlight-4": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-shield",
+            "icon": "icon-label-tag",
             "custom_icon_svg": "",
             "title": "Something not right?",
             "text": "<p>Easy 30 day returns</p>",
@@ -114,7 +114,7 @@
         "highlight-5": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-gift",
+            "icon": "icon-credit-card",
             "custom_icon_svg": "",
             "title": "Free Delivery $99+",
             "text": "<p>On orders over $99</p>",
@@ -199,9 +199,6 @@
         "collection_XpfRHF",
         "collection_KBxn7i"
       ],
-      "custom_css": [
-        "h2 {font-size: 32px;}"
-      ],
       "name": "Collection list",
       "settings": {
         "title": "Shop by Category",
@@ -231,9 +228,6 @@
       },
       "block_order": [
         "view-all-card"
-      ],
-      "custom_css": [
-        "h2 {font-size: 24px;}"
       ],
       "settings": {
         "title": "Trending Baby Products",
@@ -314,9 +308,6 @@
         "promotion_HXjy3F",
         "promotion_k96VVC"
       ],
-      "custom_css": [
-        "h2 {font-size: 24px;}"
-      ],
       "name": "Mosaic",
       "settings": {
         "title": "Featured Categories",
@@ -328,9 +319,6 @@
     },
     "dynamic_featured_collection_Cqyr9G": {
       "type": "dynamic-featured-collection",
-      "custom_css": [
-        "h2 {font-size: 20px;}"
-      ],
       "name": "Featured collection",
       "settings": {
         "title": "New Arrivals",
@@ -411,9 +399,6 @@
         "hotspot-3",
         "hotspot-4"
       ],
-      "custom_css": [
-        "h2 {font-size: 24px;}"
-      ],
       "settings": {
         "title": "Bestselling Baby Essentials",
         "image": "shopify://shop_images/mobile_hero.webp",
@@ -449,9 +434,6 @@
       },
       "block_order": [
         "title-card"
-      ],
-      "custom_css": [
-        "h2 {font-size: 24px;}"
       ],
       "settings": {
         "title": "Popular in Baby Care",
@@ -522,9 +504,6 @@
         "testimonial-5",
         "testimonial-6"
       ],
-      "custom_css": [
-        "h2 {font-size: 32px;}"
-      ],
       "settings": {
         "title": "Loved by Australian Families",
         "image_crop": "circle",
@@ -533,14 +512,23 @@
     },
     "165343907407d318c7": {
       "type": "pxs-newsletter",
-      "custom_css": [
-        "h2 {font-size: 32px;}"
-      ],
       "settings": {
         "title": "Join the AnisBub Family",
         "text": "<p>Subscribe to receive 10% off your first order, plus updates on new arrivals, parenting tips, and exclusive specials.</p>",
         "desktop_alignment": "left",
         "mobile_alignment": "top"
+      }
+    },
+    "dynamic_featured_collection_T4QcRL": {
+      "type": "dynamic-featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "Customer Favourites",
+        "layout": "grid",
+        "collection": "baby-and-toddler-apparel-example-products",
+        "product_count": 8,
+        "cta_label": "Shop all new arrivals",
+        "cta_button_style": "primary"
       }
     }
   },
@@ -555,6 +543,7 @@
     "dynamic_shoppable_image",
     "dynamic_featured_collection-2",
     "dynamic_testimonials",
-    "165343907407d318c7"
+    "165343907407d318c7",
+    "dynamic_featured_collection_T4QcRL"
   ]
 }

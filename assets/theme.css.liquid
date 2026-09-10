@@ -325,7 +325,7 @@
     {%- assign font_size_mobile_scale = 1 -%}
     {%- assign font_size_mobile_adjustment = 0 -%}
   {%- when 'section-heading' -%}
-    {%- assign font_size_constant_scale = 1.25 -%}
+    {%- assign font_size_constant_scale = 2.0 -%}
     {%- assign font_size_scale = settings.type_heading_size | times: 1.0 -%}
     {%- assign font_size_capitalize = settings.type_heading_capitalize -%}
     {%- assign font_size_capitalize_adjustment = -2 -%}
@@ -14309,16 +14309,25 @@ html body .home-section--content .promo-mosaic--inner.promo-mosaic--compressed .
   color: {{ settings.color_product_sale_accent }};
 }
 
-.productitem--title {
+.productitem--title,
+h2.productitem--title,
+.productgrid--item .productitem--title,
+.productgrid--item h2.productitem--title {
   font-family: {{ fonts_type_body_family }};
   font-style: {{ fonts_type_body_style }};
   font-weight: {{ fonts_type_body_weight }};
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body) !important;
   margin: 0.625rem 0 0;
   line-height: 1.3125;
   letter-spacing: normal;
   text-transform: none;
   white-space: normal;
+}
+
+.productitem--title a,
+h2.productitem--title a,
+.productgrid--item .productitem--title a {
+  font-size: inherit !important;
 }
 .productitem--vendor a {
   font-family: {{ fonts_type_body_family }};
