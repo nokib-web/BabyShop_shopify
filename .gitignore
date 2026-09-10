@@ -1,0 +1,6 @@
+# Shopify Theme .gitignore
+.shopify/
+.env
+.DS_Store
+Thumbs.db
+*.log

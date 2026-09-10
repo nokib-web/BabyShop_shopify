@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {}
+    },
+    "subcategories": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "girls": {
+          "type": "collection",
+          "settings": {
+            "collection": "girls-clothes",
+            "title": "Girls' Clothes"
+          }
+        },
+        "boys": {
+          "type": "collection",
+          "settings": {
+            "collection": "boys-clothes",
+            "title": "Boys' Clothes"
+          }
+        },
+        "all_clothing": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing",
+            "title": "All Baby Clothing"
+          }
+        }
+      },
+      "block_order": [
+        "girls",
+        "boys",
+        "all_clothing"
+      ],
+      "settings": {
+        "title": "Shop Clothing by Category",
+        "thumbnail_columns_desktop": 3,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "View All",
+        "cta_link": "shopify://collections/clothing",
+        "cta_button_style": "primary"
+      }
+    },
+    "featured_girls": {
+      "type": "dynamic-featured-collection",
+      "settings": {
+        "title": "Girls' Clothes",
+        "layout": "grid",
+        "collection": "girls-clothes",
+        "product_count": 8,
+        "cta_label": "Shop Girls' Collection",
+        "cta_button_style": "primary"
+      }
+    },
+    "featured_boys": {
+      "type": "dynamic-featured-collection",
+      "settings": {
+        "title": "Boys' Clothes",
+        "layout": "grid",
+        "collection": "boys-clothes",
+        "product_count": 8,
+        "cta_label": "Shop Boys' Collection",
+        "cta_button_style": "primary"
+      }
+    },
+    "highlights": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "h1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Delivery",
+            "text": "<p>Across Australia on orders $99+</p>",
+            "link": ""
+          }
+        },
+        "h2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-shield",
+            "title": "100% Organic Cotton",
+            "text": "<p>Gentle & breathable on newborn skin</p>",
+            "link": ""
+          }
+        },
+        "h3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-return",
+            "title": "Easy 30-Day Returns",
+            "text": "<p>Hassle-free size exchanges</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ],
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "icon_layout": "center",
+        "color": "#2f5054",
+        "icon_color": "#4a7875",
+        "background_color": "#f4f7f6",
+        "mobile_layout": "grid"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "subcategories",
+    "featured_girls",
+    "featured_boys",
+    "highlights"
+  ]
+}

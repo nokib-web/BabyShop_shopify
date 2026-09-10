@@ -1,0 +1,89 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "static-list-collections",
+      "settings": {
+        "thumbnail_columns_desktop": 4,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original"
+      }
+    },
+    "16541440751c413f04": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "165414407560793182-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing",
+            "title": "Baby Clothing"
+          }
+        },
+        "165414407560793182-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-furniture",
+            "title": "Baby Furniture"
+          }
+        },
+        "165414407560793182-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "prams",
+            "title": "Prams & Strollers"
+          }
+        },
+        "165414407560793182-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-accessories",
+            "title": "Baby Accessories"
+          }
+        },
+        "165414407560793182-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "girls-clothes",
+            "title": "Girls' Clothes"
+          }
+        },
+        "165414407560793182-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "boys-clothes",
+            "title": "Boys' Clothes"
+          }
+        }
+      },
+      "block_order": [
+        "165414407560793182-0",
+        "165414407560793182-1",
+        "165414407560793182-2",
+        "165414407560793182-3",
+        "165414407560793182-4",
+        "165414407560793182-5"
+      ],
+      "settings": {
+        "title": "All Collections",
+        "thumbnail_columns_desktop": 3,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "View All Products",
+        "cta_link": "shopify://collections/all",
+        "cta_button_style": "primary"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16541440751c413f04"
+  ]
+}

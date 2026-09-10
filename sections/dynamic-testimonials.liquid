@@ -1,0 +1,334 @@
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-type="dynamic-testimonials">
+</script>
+
+<script type="application/pxs-animation-mapping+json">
+  {
+    "blocks": [".testimonial"],
+    "elements": [
+      ".testimonial__image-container"
+    ]
+  }
+</script>
+
+<section class="testimonials-section" id="testimonials-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <h2 class="home-section--title">
+      {{ section.settings.title | escape }}
+    </h2>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="ts-carousel-outer" id="ts-outer-{{ section.id }}">
+      <div class="ts-carousel-track" id="ts-track-{{ section.id }}">
+
+        {% comment %} Original set {% endcomment %}
+        {% for block in section.blocks %}
+          <div class="testimonial ts-card" {{ block.shopify_attributes }}>
+            <div class="testimonial__content">
+              {% if block.settings.image != blank %}
+                <div class="testimonial__image-container testimonial__image-container--{{ section.settings.image_crop }}">
+                  {% if section.settings.image_crop == 'circle' or section.settings.image_crop == 'rounded' %}
+                    {% assign image_crop = 'center' %}
+                  {% else %}
+                    {% assign image_crop = false %}
+                  {% endif %}
+                  {%
+                    render 'rimg',
+                    img: block.settings.image,
+                    class: 'testimonial__image',
+                    size: '400x',
+                    crop: image_crop,
+                    lazy: true,
+                    canvas: true
+                  %}
+                </div>
+              {% endif %}
+              {% if block.settings.star_rating != '0' %}
+                <div class="testimonial__star-ratings">
+                  {% for i in (1..5) %}
+                    {% if i == 5 %}
+                      {% if block.settings.star_rating == '4.5' %}
+                        {% render 'icon-library', id: 'icon-star-half', icon_class: 'testimonial__star-rating' %}
+                      {% else %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% elsif i == 4 %}
+                      {% if block.settings.star_rating != '4' %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% else %}
+                      {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <blockquote class="testimonial__text">{{ block.settings.text }}</blockquote>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite class="testimonial__author">{{ block.settings.author }}</cite>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+
+        {% comment %} Cloned set for seamless loop {% endcomment %}
+        {% for block in section.blocks %}
+          <div class="testimonial ts-card ts-card--clone" aria-hidden="true">
+            <div class="testimonial__content">
+              {% if block.settings.image != blank %}
+                <div class="testimonial__image-container testimonial__image-container--{{ section.settings.image_crop }}">
+                  {% if section.settings.image_crop == 'circle' or section.settings.image_crop == 'rounded' %}
+                    {% assign image_crop = 'center' %}
+                  {% else %}
+                    {% assign image_crop = false %}
+                  {% endif %}
+                  {%
+                    render 'rimg',
+                    img: block.settings.image,
+                    class: 'testimonial__image',
+                    size: '400x',
+                    crop: image_crop,
+                    lazy: true,
+                    canvas: true
+                  %}
+                </div>
+              {% endif %}
+              {% if block.settings.star_rating != '0' %}
+                <div class="testimonial__star-ratings">
+                  {% for i in (1..5) %}
+                    {% if i == 5 %}
+                      {% if block.settings.star_rating == '4.5' %}
+                        {% render 'icon-library', id: 'icon-star-half', icon_class: 'testimonial__star-rating' %}
+                      {% else %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% elsif i == 4 %}
+                      {% if block.settings.star_rating != '4' %}
+                        {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                      {% endif %}
+                    {% else %}
+                      {% render 'icon-library', id: 'icon-star', icon_class: 'testimonial__star-rating' %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <blockquote class="testimonial__text">{{ block.settings.text }}</blockquote>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite class="testimonial__author">{{ block.settings.author }}</cite>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<style>
+  /* Outer: clip overflow + fade edges */
+  #ts-outer-{{ section.id }} {
+    overflow: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  /* Track: force flex row, no wrap, GPU-accelerated */
+  #ts-track-{{ section.id }} {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+    -ms-flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important;
+    width: -webkit-max-content !important;
+    width: -moz-max-content !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 20px 0 !important;
+    will-change: transform;
+    transition: none !important;
+    /* reset any theme grid/column layout */
+    grid-template-columns: none !important;
+    -webkit-columns: unset !important;
+    columns: unset !important;
+  }
+
+  /* Cards: fixed width, no shrink/grow */
+  #ts-track-{{ section.id }} .ts-card {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 320px !important;
+    flex: 0 0 320px !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    margin: 0 24px 0 0 !important;
+    float: none !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ts-track-{{ section.id }} .ts-card--clone {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+
+  function initCarousel() {
+    var track = document.getElementById('ts-track-' + sectionId);
+    var outer = document.getElementById('ts-outer-' + sectionId);
+    if (!track || !outer) return;
+
+    var speed = 0.6;  // px per frame — raise for faster scroll
+    var pos = 0;
+    var paused = false;
+    var rafId = null;
+
+    // Measure original cards only (not clones)
+    var origCards = track.querySelectorAll('.ts-card:not(.ts-card--clone)');
+    var halfWidth = 0;
+    origCards.forEach(function(card) {
+      var style = window.getComputedStyle(card);
+      var marginRight = parseFloat(style.marginRight) || 24;
+      halfWidth += card.offsetWidth + marginRight;
+    });
+
+    if (halfWidth === 0) return; // nothing to scroll
+
+    function step() {
+      if (!paused) {
+        pos += speed;
+        if (pos >= halfWidth) pos = 0;
+        track.style.transform = 'translateX(-' + pos + 'px)';
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    if (rafId) cancelAnimationFrame(rafId);
+    step();
+
+    outer.addEventListener('mouseenter', function() { paused = true; });
+    outer.addEventListener('mouseleave', function() { paused = false; });
+    document.addEventListener('visibilitychange', function() {
+      paused = document.hidden;
+    });
+  }
+
+  // Run after full page load so images/fonts don't shift widths
+  if (document.readyState === 'complete') {
+    initCarousel();
+  } else {
+    window.addEventListener('load', initCarousel);
+  }
+
+  // Shopify theme editor reload
+  document.addEventListener('shopify:section:load', function(e) {
+    if (e.detail && e.detail.sectionId === sectionId) {
+      setTimeout(initCarousel, 200);
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testimonials--section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Testimonials"
+    },
+    {
+      "type": "select",
+      "id": "image_crop",
+      "label": "Image crop",
+      "options": [
+        { "label": "Original", "value": "original" },
+        { "label": "Circle", "value": "circle" },
+        { "label": "Rounded rectangle", "value": "rounded" }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        { "label": "Small", "value": "small" },
+        { "label": "Medium", "value": "medium" },
+        { "label": "Large", "value": "large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Author's image"
+        },
+        {
+          "type": "select",
+          "id": "star_rating",
+          "label": "Star rating",
+          "options": [
+            { "label": "None", "value": "0" },
+            { "label": "4 out of 5", "value": "4" },
+            { "label": "4.5 out of 5", "value": "4.5" },
+            { "label": "5 out of 5", "value": "5" }
+          ],
+          "default": "4.5"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "author",
+          "label": "Author",
+          "default": "<p>Author's name</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

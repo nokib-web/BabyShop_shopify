@@ -1,0 +1,574 @@
+{% doc %}
+  @prompt
+    Create a Shopify section called "Testimonials - Social Proof".
+    
+    Design:
+    - Clean modern layout with 3 testimonial cards in a row (desktop), stacked on mobile
+    - Soft gradient background (light pink/orange tone)
+    - Centered heading: "Facebook Testimonials"
+    - Each card should look like a social media post
+    
+    Each testimonial card should include:
+    - Circular profile image
+    - Customer name
+    - Time (e.g., "2h ago")
+    - Testimonial text
+    - Reaction icons (like, love, etc.) with count
+    - Comment count
+    - Bottom row: Like, Comment, Share buttons (non-functional, visual only)
+    
+    Settings:
+    - Section heading (editable)
+    - Background color or gradient
+    - Enable/disable section
+    
+    Blocks (repeatable testimonials):
+    - Profile image
+    - Name
+    - Time
+    - Testimonial text
+    - Likes count
+    - Comments count
+    
+    Style:
+    - Rounded cards
+    - Subtle shadow
+    - Clean spacing
+    - Slight hover lift effect
+    - Professional, modern UI
+    
+    Mobile:
+    - 1 card per row
+    - Proper spacing and readable text
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-section-{{ ai_gen_id }} {
+    display: block;
+    padding: 60px 20px;
+    background: {{ block.settings.background_gradient }};
+    width: 100%;
+  }
+
+  .ai-testimonials-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-testimonials-heading-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 40px;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .ai-testimonials-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .ai-testimonial-card-{{ ai_gen_id }} {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-testimonial-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-testimonial-header-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .ai-testimonial-avatar-{{ ai_gen_id }} {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #f0f0f0;
+  }
+
+  .ai-testimonial-avatar-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-testimonial-avatar-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .ai-testimonial-info-{{ ai_gen_id }} {
+    flex-grow: 1;
+  }
+
+  .ai-testimonial-name-{{ ai_gen_id }} {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1d1d1d;
+    margin: 0 0 2px;
+  }
+
+  .ai-testimonial-time-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: #65676b;
+  }
+
+  .ai-testimonial-text-{{ ai_gen_id }} {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #1d1d1d;
+    margin-bottom: 15px;
+  }
+
+  .ai-testimonial-reactions-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-top: 1px solid #e4e6eb;
+    border-bottom: 1px solid #e4e6eb;
+    margin-bottom: 8px;
+  }
+
+  .ai-testimonial-reaction-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #65676b;
+  }
+
+  .ai-testimonial-reaction-icons-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .ai-testimonial-reaction-icon-{{ ai_gen_id }} {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+
+  .ai-testimonial-reaction-like-{{ ai_gen_id }} {
+    background: #1877f2;
+    color: #ffffff;
+  }
+
+  .ai-testimonial-reaction-love-{{ ai_gen_id }} {
+    background: #f33e58;
+    color: #ffffff;
+  }
+
+  .ai-testimonial-actions-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 8px;
+  }
+
+  .ai-testimonial-action-btn-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    color: #65676b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ai-testimonial-action-btn-{{ ai_gen_id }}:hover {
+    background-color: #f0f2f5;
+  }
+
+  .ai-testimonial-action-icon-{{ ai_gen_id }} {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-testimonials-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-testimonials-section-{{ ai_gen_id }} {
+      padding: 40px 15px;
+    }
+
+    .ai-testimonials-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .ai-testimonial-card-{{ ai_gen_id }} {
+      padding: 16px;
+    }
+  }
+{% endstyle %}
+
+<testimonials-section-{{ ai_gen_id }}
+  class="ai-testimonials-section-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-testimonials-container-{{ ai_gen_id }}">
+    {% if block.settings.section_heading != blank %}
+      <h2 class="ai-testimonials-heading-{{ ai_gen_id }}">{{ block.settings.section_heading }}</h2>
+    {% endif %}
+
+    <div class="ai-testimonials-grid-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% liquid
+          assign profile_key = 'profile_image_' | append: i
+          assign name_key = 'customer_name_' | append: i
+          assign time_key = 'time_posted_' | append: i
+          assign text_key = 'testimonial_text_' | append: i
+          assign likes_key = 'likes_count_' | append: i
+          assign comments_key = 'comments_count_' | append: i
+
+          assign profile_image = block.settings[profile_key]
+          assign customer_name = block.settings[name_key]
+          assign time_posted = block.settings[time_key]
+          assign testimonial_text = block.settings[text_key]
+          assign likes_count = block.settings[likes_key]
+          assign comments_count = block.settings[comments_key]
+        %}
+
+        <div class="ai-testimonial-card-{{ ai_gen_id }}">
+          <div class="ai-testimonial-header-{{ ai_gen_id }}">
+            <div class="ai-testimonial-avatar-{{ ai_gen_id }}">
+              {% if profile_image %}
+                <img
+                  src="{{ profile_image | image_url: width: 100 }}"
+                  alt="{{ customer_name | escape }}"
+                  loading="lazy"
+                  width="50"
+                  height="50"
+                >
+              {% else %}
+                <div class="ai-testimonial-avatar-placeholder-{{ ai_gen_id }}">
+                  {% if customer_name != blank %}
+                    {{ customer_name | slice: 0 }}
+                  {% else %}
+                    ?
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="ai-testimonial-info-{{ ai_gen_id }}">
+              <div class="ai-testimonial-name-{{ ai_gen_id }}">
+                {% if customer_name != blank %}
+                  {{ customer_name }}
+                {% else %}
+                  Customer Name
+                {% endif %}
+              </div>
+              <div class="ai-testimonial-time-{{ ai_gen_id }}">
+                {% if time_posted != blank %}
+                  {{ time_posted }}
+                {% else %}
+                  2h ago
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-testimonial-text-{{ ai_gen_id }}">
+            {% if testimonial_text != blank %}
+              {{ testimonial_text }}
+            {% else %}
+              Add your testimonial text here to share customer feedback.
+            {% endif %}
+          </div>
+
+          <div class="ai-testimonial-reactions-{{ ai_gen_id }}">
+            <div class="ai-testimonial-reaction-item-{{ ai_gen_id }}">
+              <div class="ai-testimonial-reaction-icons-{{ ai_gen_id }}">
+                <div class="ai-testimonial-reaction-icon-{{ ai_gen_id }} ai-testimonial-reaction-like-{{ ai_gen_id }}">
+                  👍
+                </div>
+                <div class="ai-testimonial-reaction-icon-{{ ai_gen_id }} ai-testimonial-reaction-love-{{ ai_gen_id }}">
+                  ❤️
+                </div>
+              </div>
+              <span>{{ likes_count }}</span>
+            </div>
+            <div class="ai-testimonial-reaction-item-{{ ai_gen_id }}">
+              {{ comments_count }} comments
+            </div>
+          </div>
+
+          <div class="ai-testimonial-actions-{{ ai_gen_id }}">
+            <button class="ai-testimonial-action-btn-{{ ai_gen_id }}" aria-label="Like">
+              <svg class="ai-testimonial-action-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+              </svg>
+              Like
+            </button>
+            <button class="ai-testimonial-action-btn-{{ ai_gen_id }}" aria-label="Comment">
+              <svg class="ai-testimonial-action-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Comment
+            </button>
+            <button class="ai-testimonial-action-btn-{{ ai_gen_id }}" aria-label="Share">
+              <svg class="ai-testimonial-action-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                <polyline points="16 6 12 2 8 6"></polyline>
+                <line x1="12" y1="2" x2="12" y2="15"></line>
+              </svg>
+              Share
+            </button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</testimonials-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TestimonialsSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupActionButtons();
+      }
+
+      setupActionButtons() {
+        const buttons = this.querySelectorAll('.ai-testimonial-action-btn-{{ ai_gen_id }}');
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+          });
+        });
+      }
+    }
+
+    customElements.define('testimonials-section-{{ ai_gen_id }}', TestimonialsSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Social proof",
+  "tag": null,
+  "class": "testimonials-social-proof-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "Facebook Testimonials"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1d1d1d"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background",
+      "default": "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "profile_image_1",
+      "label": "Profile image"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_1",
+      "label": "Customer name",
+      "default": "Sarah Johnson"
+    },
+    {
+      "type": "text",
+      "id": "time_posted_1",
+      "label": "Time posted",
+      "default": "2h ago"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_text_1",
+      "label": "Testimonial text",
+      "default": "Absolutely love this product! The quality exceeded my expectations and the customer service was outstanding. Highly recommend to anyone looking for premium quality!"
+    },
+    {
+      "type": "range",
+      "id": "likes_count_1",
+      "label": "Likes count",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "comments_count_1",
+      "label": "Comments count",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "profile_image_2",
+      "label": "Profile image"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_2",
+      "label": "Customer name",
+      "default": "Michael Chen"
+    },
+    {
+      "type": "text",
+      "id": "time_posted_2",
+      "label": "Time posted",
+      "default": "5h ago"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_text_2",
+      "label": "Testimonial text",
+      "default": "Best purchase I've made this year! Fast shipping, great packaging, and the product itself is amazing. Will definitely be ordering again soon!"
+    },
+    {
+      "type": "range",
+      "id": "likes_count_2",
+      "label": "Likes count",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 65
+    },
+    {
+      "type": "range",
+      "id": "comments_count_2",
+      "label": "Comments count",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "profile_image_3",
+      "label": "Profile image"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_3",
+      "label": "Customer name",
+      "default": "Emma Williams"
+    },
+    {
+      "type": "text",
+      "id": "time_posted_3",
+      "label": "Time posted",
+      "default": "1d ago"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_text_3",
+      "label": "Testimonial text",
+      "default": "I was skeptical at first, but this completely changed my mind. The attention to detail is incredible and it works exactly as described. Five stars!"
+    },
+    {
+      "type": "range",
+      "id": "likes_count_3",
+      "label": "Likes count",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "comments_count_3",
+      "label": "Comments count",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 15
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social proof"
+    }
+  ]
+}
+{% endschema %}

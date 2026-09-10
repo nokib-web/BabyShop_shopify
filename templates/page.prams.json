@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {}
+    },
+    "featured_prams": {
+      "type": "dynamic-featured-collection",
+      "settings": {
+        "title": "Prams & Strollers",
+        "layout": "grid",
+        "collection": "prams",
+        "product_count": 12,
+        "cta_label": "Shop All Prams",
+        "cta_button_style": "primary"
+      }
+    },
+    "highlights": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "h1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Delivery $99+",
+            "text": "<p>Fast dispatch across Australia</p>",
+            "link": ""
+          }
+        },
+        "h2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-shield",
+            "title": "Safety & Ergonomics",
+            "text": "<p>Designed for baby comfort & smooth maneuvering</p>",
+            "link": ""
+          }
+        },
+        "h3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-return",
+            "title": "Full Australian Warranty",
+            "text": "<p>Authentic products with manufacturer warranty</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ],
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "icon_layout": "center",
+        "color": "#2f5054",
+        "icon_color": "#4a7875",
+        "background_color": "#f4f7f6",
+        "mobile_layout": "grid"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_prams",
+    "highlights"
+  ]
+}

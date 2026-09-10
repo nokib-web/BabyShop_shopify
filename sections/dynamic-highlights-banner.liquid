@@ -1,0 +1,575 @@
+<script
+  type="application/json"
+  data-section-type="dynamic-highlights-banner"
+  data-section-id="{{ section.id }}">
+</script>
+
+<style>
+  .highlights-banner__{{- section.id }}.highlights-banner__container {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    padding-top: {{ section.settings.padding_top | default: 28 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 28 }}px;
+    {% if section.settings.border_top_bottom %}
+      border-top: 1px solid {{ section.settings.border_color | default: '#eef2f1' }};
+      border-bottom: 1px solid {{ section.settings.border_color | default: '#eef2f1' }};
+    {% endif %}
+  }
+
+  {% if section.settings.section_width == "content-width" %}
+    .highlights-banner__{{- section.id }} .highlights-banner__content {
+      background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    }
+  {% endif %}
+
+  .highlights-banner__{{- section.id }} .highlights-banner__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__content::before,
+  .highlights-banner__{{- section.id }} .highlights-banner__content::after {
+    display: none !important;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__block {
+    position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 12px 16px;
+    color: {{ section.settings.color | default: '#2f5054' }};
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__block:hover {
+    opacity: 0.92;
+  }
+
+  /* Desktop layout (evenly spaced columns with vertical dividers) */
+  @media screen and (min-width: 860px) {
+    .highlights-banner__{{- section.id }} .highlights-banner__content {
+      display: grid !important;
+      grid-template-columns: repeat({{ section.blocks.size | at_most: 8 | at_least: 1 }}, minmax(0, 1fr)) !important;
+      gap: 0 !important;
+      padding: 0 20px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__block {
+      width: 100% !important;
+      border-right: 1px solid {{ section.settings.border_color | default: '#dbe7e5' }};
+      padding: 10px 16px !important;
+    }
+
+    /* Left divider on first column to match the enclosed reference design */
+    .highlights-banner__{{- section.id }} .highlights-banner__block:first-child {
+      border-left: 1px solid {{ section.settings.border_color | default: '#dbe7e5' }};
+    }
+  }
+
+  /* Mobile layout: Strictly 2 columns per row */
+  @media screen and (max-width: 859px) {
+    .highlights-banner__{{- section.id }} .highlights-banner__content {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0 !important;
+      padding: 0 10px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__block {
+      width: 100% !important;
+      padding: 16px 10px !important;
+      border-bottom: 1px solid {{ section.settings.border_color | default: '#dbe7e5' }};
+    }
+
+    /* Column 1 (odd items) has right border */
+    .highlights-banner__{{- section.id }} .highlights-banner__block:nth-child(odd) {
+      border-right: 1px solid {{ section.settings.border_color | default: '#dbe7e5' }};
+    }
+
+    /* Remove bottom border on the last row */
+    {% assign total_blocks = section.blocks.size %}
+    {% assign remainder = total_blocks | modulo: 2 %}
+    {% if remainder == 0 %}
+      .highlights-banner__{{- section.id }} .highlights-banner__block:nth-last-child(1),
+      .highlights-banner__{{- section.id }} .highlights-banner__block:nth-last-child(2) {
+        border-bottom: none !important;
+      }
+    {% else %}
+      .highlights-banner__{{- section.id }} .highlights-banner__block:nth-last-child(1) {
+        border-bottom: none !important;
+      }
+    {% endif %}
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    margin: 0 0 10px 0 !important;
+    color: {{ section.settings.icon_color | default: '#4a7875' }} !important;
+    flex-shrink: 0;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__icon svg {
+    width: 36px !important;
+    height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    stroke: currentColor;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__custom-icon,
+  .highlights-banner__{{- section.id }} .highlights-banner__icon img {
+    width: auto !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    max-width: 44px !important;
+    object-fit: contain !important;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__text {
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__heading {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: {{ section.settings.color | default: '#2f5054' }} !important;
+    line-height: 1.3 !important;
+    margin: 0 0 4px 0 !important;
+    letter-spacing: 0.01em;
+  }
+
+  .highlights-banner__{{- section.id }} .highlights-banner__text p,
+  .highlights-banner__{{- section.id }} .highlights-banner__text span {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: {{ section.settings.subtext_color | default: '#4a7875' }} !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  @media screen and (max-width: 480px) {
+    .highlights-banner__{{- section.id }} .highlights-banner__icon {
+      width: 34px !important;
+      height: 34px !important;
+      max-width: 34px !important;
+      max-height: 34px !important;
+      margin-bottom: 6px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__icon svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__custom-icon,
+    .highlights-banner__{{- section.id }} .highlights-banner__icon img {
+      height: 30px !important;
+      max-height: 30px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__heading {
+      font-size: 13px !important;
+      margin-bottom: 3px !important;
+    }
+
+    .highlights-banner__{{- section.id }} .highlights-banner__text p,
+    .highlights-banner__{{- section.id }} .highlights-banner__text span {
+      font-size: 11px !important;
+    }
+  }
+</style>
+
+<div class="
+  highlights-banner__{{ section.id }}
+  highlights-banner__container
+  {{ section.settings.section_width }}
+  {% if section.settings.section_spacing %}section-spacing{% endif %}"
+>
+  <div class="highlights-banner__content highlight-banner__count-{{ section.blocks.size }}">
+    {% for block in section.blocks %}
+      {% if block.settings.text != blank or block.settings.title != blank %}
+        <div
+          class="highlights-banner__block highlights-banner__align-center"
+          {{ block.shopify_attributes }}
+          data-highlights-block
+        >
+          {% if block.settings.custom_icon_svg != blank or block.settings.image != blank or block.settings.icon != 'none' %}
+            <div class="highlights-banner__icon">
+              {% if block.settings.custom_icon_svg != blank %}
+                {{ block.settings.custom_icon_svg }}
+              {% elsif block.settings.image != blank %}
+                {%
+                  render 'rimg',
+                  class: 'highlights-banner__custom-icon',
+                  img: block.settings.image,
+                  size: '150x'
+                %}
+              {% else %}
+                {% render 'icon-library', id: block.settings.icon %}
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <div class="highlights-banner__text">
+            {% if block.settings.title != blank %}
+              <span class="highlights-banner__heading">
+                {{ block.settings.title | escape }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              {{ block.settings.text }}
+            {% endif %}
+          </div>
+          {% if block.settings.link != blank %}
+            <a
+              class="highlights-banner__block-link"
+              href="{{ block.settings.link }}"
+              {{ block.shopify_attributes }}
+            >
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Highlights banner",
+  "class": "highlights-banner",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "section_spacing",
+      "label": "Show section spacing",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top_bottom",
+      "label": "Show top & bottom border",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "content-width",
+          "label": "Content width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Heading color",
+      "default": "#2f5054"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext color",
+      "default": "#4a7875"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#4a7875"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Divider border color",
+      "default": "#dbe7e5"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "Highlight",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Built-in Icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "No icon"
+            },
+            {
+              "value": "icon-delivery",
+              "label": "Delivery truck"
+            },
+            {
+              "value": "icon-delivery-cart",
+              "label": "Delivery cart"
+            },
+            {
+              "value": "icon-delivery-door",
+              "label": "Delivery door"
+            },
+            {
+              "value": "icon-delivery-handoff",
+              "label": "Delivery hand off"
+            },
+            {
+              "value": "icon-delivery-package",
+              "label": "Delivery package"
+            },
+            {
+              "value": "icon-award-trophy",
+              "label": "Award trophy"
+            },
+            {
+              "value": "icon-bag",
+              "label": "Shopping bag"
+            },
+            {
+              "value": "icon-cart",
+              "label": "Cart"
+            },
+            {
+              "value": "icon-car",
+              "label": "Car"
+            },
+            {
+              "value": "icon-cell-phone",
+              "label": "Cell phone"
+            },
+            {
+              "value": "icon-chat",
+              "label": "Chat"
+            },
+            {
+              "value": "icon-chat-alternate",
+              "label": "Chat alternate"
+            },
+            {
+              "value": "icon-credit-card",
+              "label": "Credit card"
+            },
+            {
+              "value": "icon-discount",
+              "label": "Discount"
+            },
+            {
+              "value": "icon-email",
+              "label": "Email"
+            },
+            {
+              "value": "icon-envelope",
+              "label": "Envelope"
+            },
+            {
+              "value": "icon-gift",
+              "label": "Gift"
+            },
+            {
+              "value": "icon-globe",
+              "label": "Globe"
+            },
+            {
+              "value": "icon-heart",
+              "label": "Heart"
+            },
+            {
+              "value": "icon-label-tag",
+              "label": "Label tag"
+            },
+            {
+              "value": "icon-lock",
+              "label": "Lock"
+            },
+            {
+              "value": "icon-people",
+              "label": "People"
+            },
+            {
+              "value": "icon-people-alternate",
+              "label": "People alternate"
+            },
+            {
+              "value": "icon-pin",
+              "label": "Pin"
+            },
+            {
+              "value": "icon-pin-alternate",
+              "label": "Pin alternate"
+            },
+            {
+              "value": "icon-checkmark",
+              "label": "Checkmark"
+            },
+            {
+              "value": "icon-smile",
+              "label": "Smile"
+            },
+            {
+              "value": "icon-star",
+              "label": "Star"
+            },
+            {
+              "value": "icon-store",
+              "label": "Store"
+            },
+            {
+              "value": "icon-shield",
+              "label": "Shield"
+            },
+            {
+              "value": "icon-thumbs-up",
+              "label": "Thumbs up"
+            },
+            {
+              "value": "icon-transfer",
+              "label": "Transfer"
+            }
+          ],
+          "default": "icon-delivery"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Icon Image",
+          "info": "Upload custom PNG/SVG (overrides built-in icon)."
+        },
+        {
+          "type": "html",
+          "id": "custom_icon_svg",
+          "label": "Custom SVG Code",
+          "info": "Optional: Paste raw SVG code directly (overrides image & icon)."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Fast dispatch"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Ships in 1-2 business days</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Store information",
+      "name": "Highlights banner",
+      "blocks": [
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Fast dispatch",
+            "text": "<p>Ships in 1-2 business days</p>"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-smile",
+            "title": "Trusted and Reliable",
+            "text": "<p>28+ years experience</p>"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "title": "Unsure? Phone us",
+            "text": "<p>1800 222 437</p>"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-shield",
+            "title": "Something not right?",
+            "text": "<p>Easy 30 day returns</p>"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-gift",
+            "title": "Be rewarded",
+            "text": "<p>Join our Loyalty Program</p>"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-car",
+            "title": "Delivery to you",
+            "text": "<p>Delivers straight to your door</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,560 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "dynamic_slideshow": {
+      "type": "dynamic-slideshow",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "background_image": "shopify://shop_images/hero_images.webp",
+            "mobile_background_image": "shopify://shop_images/mobile_hero.webp",
+            "title": "Whispers of softness",
+            "text": "Where tender fabrics meet thoughtful elegance for your little one.",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "left",
+            "button_one_label": "Shop Clothing",
+            "button_one_link": "shopify://collections/clothing",
+            "button_one_style": "primary",
+            "button_two_label": "Explore Prams",
+            "button_two_link": "shopify://collections/prams",
+            "button_two_style": "secondary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 15
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "background_image": "shopify://shop_images/baby-and-toddler-apparel-minimal-4.jpg",
+            "title": "A Tender Touch Woven into Every Thread",
+            "text": "Pure natural fibers and artisan-crafted comfort designed for your baby's serenity and peace.",
+            "color": "#ffffff",
+            "link": "",
+            "text_alignment": "center",
+            "button_one_label": "Baby Furniture",
+            "button_one_link": "shopify://collections/baby-furniture",
+            "button_one_style": "primary",
+            "button_two_label": "Baby Accessories",
+            "button_two_link": "shopify://collections/baby-accessories",
+            "button_two_style": "primary",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-3"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_duration": 8,
+        "slideshow_width": "full",
+        "slideshow_height": "fit_screen",
+        "slideshow_height_mobile": "medium",
+        "slideshow_text_below_image": true
+      }
+    },
+    "dynamic_highlights_banner": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "highlight-1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "custom_icon_svg": "",
+            "title": "Fast dispatch",
+            "text": "<p>Ships in 1-2 business days</p>",
+            "link": ""
+          }
+        },
+        "highlight-2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-smile",
+            "custom_icon_svg": "",
+            "title": "Trusted and Reliable",
+            "text": "<p>Australian owned & loved</p>",
+            "link": ""
+          }
+        },
+        "highlight-3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-chat-alternate",
+            "custom_icon_svg": "",
+            "title": "Need help?",
+            "text": "<p>Friendly AU support</p>",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "highlight-4": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-shield",
+            "custom_icon_svg": "",
+            "title": "Something not right?",
+            "text": "<p>Easy 30 day returns</p>",
+            "link": ""
+          }
+        },
+        "highlight-5": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-gift",
+            "custom_icon_svg": "",
+            "title": "Free Delivery $99+",
+            "text": "<p>On orders over $99</p>",
+            "link": ""
+          }
+        },
+        "highlight-6": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-car",
+            "custom_icon_svg": "",
+            "title": "Delivery to you",
+            "text": "<p>Direct to your door AU-wide</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "highlight-1",
+        "highlight-2",
+        "highlight-3",
+        "highlight-4",
+        "highlight-5",
+        "highlight-6"
+      ],
+      "settings": {
+        "section_spacing": false,
+        "border_top_bottom": true,
+        "section_width": "full-width",
+        "color": "#2f5054",
+        "subtext_color": "#4a7875",
+        "icon_color": "#4a7875",
+        "border_color": "#dbe7e5",
+        "background_color": "#ffffff",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "dynamic_collection_list_qakzh4": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "collection_TkHjPK": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-and-toddler-apparel-example-products",
+            "title": "Baby Clothing"
+          }
+        },
+        "collection_4h3m4c": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-and-toddler-apparel-example-products",
+            "title": "Baby Furniture"
+          }
+        },
+        "collection_rUhg6d": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-and-toddler-apparel-example-products",
+            "title": "Prams & Strollers"
+          }
+        },
+        "collection_XpfRHF": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-and-toddler-apparel-example-products",
+            "title": "Baby Accessories"
+          }
+        },
+        "collection_KBxn7i": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-and-toddler-apparel-example-products",
+            "title": "Girls' Clothes"
+          }
+        }
+      },
+      "block_order": [
+        "collection_TkHjPK",
+        "collection_4h3m4c",
+        "collection_rUhg6d",
+        "collection_XpfRHF",
+        "collection_KBxn7i"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}"
+      ],
+      "name": "Collection list",
+      "settings": {
+        "title": "Shop by Category",
+        "thumbnail_columns_desktop": 5,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "original",
+        "cta_label": "View All Collections",
+        "cta_link": "shopify://collections",
+        "cta_button_style": "primary"
+      }
+    },
+    "dynamic_featured_collection": {
+      "type": "dynamic-featured-collection",
+      "blocks": {
+        "view-all-card": {
+          "type": "view_all_card",
+          "settings": {
+            "image": "shopify://shop_images/mobile_hero.webp",
+            "text_alignment": "center-center",
+            "pre_heading": "View all",
+            "heading": "Collection",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "view-all-card"
+      ],
+      "custom_css": [
+        "h2 {font-size: 24px;}"
+      ],
+      "settings": {
+        "title": "Trending Baby Products",
+        "layout": "slideshow",
+        "collection": "all",
+        "product_count": 8,
+        "cta_label": "",
+        "cta_button_style": "primary"
+      }
+    },
+    "dynamic_promo_mosaic_7gr4cj": {
+      "type": "dynamic-promo-mosaic",
+      "blocks": {
+        "promotion_8TcHxF": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify://shop_images/baby-and-toddler-apparel-minimal-5.jpg",
+            "title": "Baby Clothing",
+            "text": "Girls & Boys Outfits",
+            "color": "#ffffff",
+            "block_link": "shopify://collections/clothing",
+            "button_text": "Shop Clothing",
+            "button_style": "secondary",
+            "show_overlay": true,
+            "background": "#000000",
+            "opacity": 25
+          }
+        },
+        "promotion_PADijC": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify://shop_images/baby-and-toddler-apparel-minimal-2.jpg",
+            "title": "Baby Furniture",
+            "text": "Cots, Mattresses & Nursery",
+            "color": "#ffffff",
+            "block_link": "shopify://collections/baby-furniture",
+            "button_text": "Shop Furniture",
+            "button_style": "secondary",
+            "show_overlay": true,
+            "background": "#000000",
+            "opacity": 25
+          }
+        },
+        "promotion_HXjy3F": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify://shop_images/ba5-4.jpg",
+            "title": "Prams & Strollers",
+            "text": "Everyday & Travel Prams",
+            "color": "#ffffff",
+            "block_link": "shopify://collections/prams",
+            "button_text": "Explore Prams",
+            "button_style": "secondary",
+            "show_overlay": true,
+            "background": "#000000",
+            "opacity": 25
+          }
+        },
+        "promotion_k96VVC": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify://shop_images/hero_images.webp",
+            "title": "Baby Accessories",
+            "text": "Swaddles, Teethers & Essentials",
+            "color": "#ffffff",
+            "block_link": "shopify://collections/baby-accessories",
+            "button_text": "Shop Accessories",
+            "button_style": "secondary",
+            "show_overlay": true,
+            "background": "#000000",
+            "opacity": 25
+          }
+        }
+      },
+      "block_order": [
+        "promotion_8TcHxF",
+        "promotion_PADijC",
+        "promotion_HXjy3F",
+        "promotion_k96VVC"
+      ],
+      "custom_css": [
+        "h2 {font-size: 24px;}"
+      ],
+      "name": "Mosaic",
+      "settings": {
+        "title": "Featured Categories",
+        "section_height": "small",
+        "text_alignment": "bottom-left",
+        "maintain_aspect_ratio": true,
+        "compress_blocks": true
+      }
+    },
+    "dynamic_featured_collection_Cqyr9G": {
+      "type": "dynamic-featured-collection",
+      "custom_css": [
+        "h2 {font-size: 20px;}"
+      ],
+      "name": "Featured collection",
+      "settings": {
+        "title": "New Arrivals",
+        "layout": "grid",
+        "collection": "baby-and-toddler-apparel-example-products",
+        "product_count": 8,
+        "cta_label": "Shop all new arrivals",
+        "cta_button_style": "primary"
+      }
+    },
+    "dynamic_image_with_products": {
+      "type": "dynamic-image-with-products",
+      "settings": {
+        "title": "Baby Accessories & Essentials",
+        "subheading": "Thoughtfully curated essentials for your baby's daily comfort",
+        "layout": "image_left",
+        "background_color": "#edf7fc",
+        "heading_color": "#2f5054",
+        "subheading_color": "#4a7875",
+        "price_color": "#4a7875",
+        "image": "shopify://shop_images/ba5-4.jpg",
+        "image_overlay_heading": "Must-haves for\nDaily Baby Care",
+        "image_link": "",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "collection": "baby-and-toddler-apparel-example-products",
+        "product_1": "",
+        "product_2": "",
+        "button_label": "Shop Baby Accessories",
+        "button_link": "shopify://collections/baby-accessories",
+        "button_bg": "#4a7875",
+        "button_color": "#ffffff",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "dynamic_shoppable_image": {
+      "type": "dynamic-shoppable-image",
+      "blocks": {
+        "hotspot-1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "baby-and-toddler-apparel-example-product-1",
+            "x_axis": 22,
+            "y_axis": 80
+          }
+        },
+        "hotspot-2": {
+          "type": "hotspot",
+          "settings": {
+            "product": "baby-and-toddler-apparel-example-product-2",
+            "x_axis": 79,
+            "y_axis": 76
+          }
+        },
+        "hotspot-3": {
+          "type": "hotspot",
+          "settings": {
+            "product": "baby-and-toddler-apparel-example-product-3",
+            "x_axis": 83,
+            "y_axis": 22
+          }
+        },
+        "hotspot-4": {
+          "type": "hotspot",
+          "settings": {
+            "product": "baby-and-toddler-apparel-example-product-4",
+            "x_axis": 11,
+            "y_axis": 19
+          }
+        }
+      },
+      "block_order": [
+        "hotspot-1",
+        "hotspot-2",
+        "hotspot-3",
+        "hotspot-4"
+      ],
+      "custom_css": [
+        "h2 {font-size: 24px;}"
+      ],
+      "settings": {
+        "title": "Bestselling Baby Essentials",
+        "image": "shopify://shop_images/mobile_hero.webp",
+        "image_width": "half",
+        "link_text": "View product",
+        "textbox_title": "Mindful Selection & Subtle Design",
+        "textbox_subheading": "<p>Crafted with gentle precision, our collection embraces the delicate essence of infancy. Each piece reveals lovingly sourced materials and refined tailoring, embodying pure serenity for your little one.</p>",
+        "textbox_button_label": "Explore Collections",
+        "textbox_button_link": "shopify://collections/all",
+        "textbox_button_style": "primary",
+        "textbox_text_alignment": "center",
+        "textbox_text_position": "left"
+      }
+    },
+    "dynamic_featured_collection-2": {
+      "type": "dynamic-featured-collection",
+      "blocks": {
+        "title-card": {
+          "type": "title_card",
+          "settings": {
+            "image": "shopify://shop_images/ba5-4.jpg",
+            "horizontal_size": "2",
+            "vertical_size": "2",
+            "text_alignment": "center-left",
+            "pre_heading": "Curated for You",
+            "heading": "Popular in Baby Care",
+            "text_color": "#2f5054",
+            "cta_label": "Shop All",
+            "overlay_color": "#ffffff",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "title-card"
+      ],
+      "custom_css": [
+        "h2 {font-size: 24px;}"
+      ],
+      "settings": {
+        "title": "Popular in Baby Care",
+        "layout": "grid",
+        "collection": "all",
+        "product_count": 6,
+        "cta_label": "View All Products",
+        "cta_button_style": "primary"
+      }
+    },
+    "dynamic_testimonials": {
+      "type": "dynamic-testimonials",
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>We purchased our baby's cot, mattress, and swaddles from AnisBub. The quality is outstanding and the organic cotton is so gentle on sensitive skin. Arrived so quickly in Sydney!</p>",
+            "author": "<p>Sarah M. — Sydney, NSW</p>"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>The pram and stroller accessories we ordered made getting out and about with our newborn so much easier. Excellent customer service when we asked about compatibility.</p>",
+            "author": "<p>Liam & Jessica — Melbourne, VIC</p>"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>Beautiful baby clothes! The fabrics are breathable, super soft, and hold up amazingly after multiple washes. Truly a one-stop baby shop for Australian parents.</p>",
+            "author": "<p>Emily R. — Brisbane, QLD</p>"
+          }
+        },
+        "testimonial-4": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>Love supporting an Australian store! The nursery furniture was easy to assemble, solidly built, and looks gorgeous in our baby room. Highly recommended!</p>",
+            "author": "<p>Hannah K. — Melbourne, VIC</p>"
+          }
+        },
+        "testimonial-5": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>Fast shipping all the way to WA! The baby carrier and silicone feeding accessories are top notch. Will definitely be ordering our baby essentials here again.</p>",
+            "author": "<p>David & Michelle — Perth, WA</p>"
+          }
+        },
+        "testimonial-6": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": "5",
+            "text": "<p>Found so many unique, high-quality baby gifts and essentials that are hard to find elsewhere in Australia. Five stars for quality, speed, and packaging!</p>",
+            "author": "<p>Rachel P. — Adelaide, SA</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3",
+        "testimonial-4",
+        "testimonial-5",
+        "testimonial-6"
+      ],
+      "custom_css": [
+        "h2 {font-size: 32px;}"
+      ],
+      "settings": {
+        "title": "Loved by Australian Families",
+        "image_crop": "circle",
+        "text_size": "large"
+      }
+    },
+    "165343907407d318c7": {
+      "type": "pxs-newsletter",
+      "custom_css": [
+        "h2 {font-size: 32px;}"
+      ],
+      "settings": {
+        "title": "Join the AnisBub Family",
+        "text": "<p>Subscribe to receive 10% off your first order, plus updates on new arrivals, parenting tips, and exclusive specials.</p>",
+        "desktop_alignment": "left",
+        "mobile_alignment": "top"
+      }
+    }
+  },
+  "order": [
+    "dynamic_slideshow",
+    "dynamic_highlights_banner",
+    "dynamic_collection_list_qakzh4",
+    "dynamic_featured_collection",
+    "dynamic_promo_mosaic_7gr4cj",
+    "dynamic_featured_collection_Cqyr9G",
+    "dynamic_image_with_products",
+    "dynamic_shoppable_image",
+    "dynamic_featured_collection-2",
+    "dynamic_testimonials",
+    "165343907407d318c7"
+  ]
+}

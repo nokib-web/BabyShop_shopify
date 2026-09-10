@@ -1,0 +1,290 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "static-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "form": {
+          "type": "form",
+          "settings": {}
+        },
+        "tabs_JNfB6z": {
+          "type": "tabs",
+          "disabled": true,
+          "settings": {
+            "show_product_description": false,
+            "show_tabs_below_product_gallery": false,
+            "tab_heading_1": "Care & Safety",
+            "tab_text_1": "<p>All products are crafted from baby-safe, certified non-toxic materials complying with Australian safety standards. Machine wash gentle in cold water with baby-friendly detergent, or wipe clean with a damp cloth.</p>",
+            "tab_heading_2": "Shipping & Delivery",
+            "tab_text_2": "<p>We dispatch from Truganina, 3029 delivering across Australia and worldwide. Enjoy free standard shipping on all Australian orders over $99. Express delivery is available at checkout.</p>",
+            "tab_heading_3": "Returns & Warranty",
+            "tab_text_3": "<p>Shop with confidence with our 30-day hassle-free return policy on unused items in their original packaging.</p>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor",
+        "price",
+        "description",
+        "form",
+        "tabs_JNfB6z",
+        "share"
+      ],
+      "settings": {
+        "gallery_aspect_ratio": "natural",
+        "gallery_image_crop": false,
+        "gallery_thumbnail_position": "below",
+        "gallery_video_autoplay": true,
+        "gallery_video_looping": true,
+        "gallery_hover_zoom": "disabled",
+        "gallery_click_to_zoom": "always"
+      }
+    },
+    "recommendations": {
+      "type": "static-product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like"
+      }
+    },
+    "reviews": {
+      "type": "static-product-reviews",
+      "disabled": true,
+      "settings": {}
+    },
+    "recently-viewed": {
+      "type": "static-recently-viewed",
+      "settings": {
+        "enable_recently_viewed_products": true
+      }
+    },
+    "1654148632dc95ede6": {
+      "type": "dynamic-testimonials",
+      "blocks": {
+        "16541486325d2f4d5b-0": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pexels-lalit-verma-2148544578-30154151.jpg",
+            "star_rating": "5",
+            "text": "<p>Exceptional quality and beautifully soft on our newborn's skin. The swaddles and clothing washed wonderfully with no shrinking. Fast shipping to Sydney!</p>",
+            "author": "<p>Olivia M. — Sydney, NSW</p>"
+          }
+        },
+        "16541486325d2f4d5b-1": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pexels-emirhan-altekin-392050471-15878991.jpg",
+            "star_rating": "5",
+            "text": "<p>We bought our pram and cot mattress from here. Top quality, very sturdy, and arrived in perfect condition. Fantastic customer support for Aussie parents.</p>",
+            "author": "<p>James & Sarah — Melbourne, VIC</p>"
+          }
+        },
+        "16541486325d2f4d5b-2": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/logo-soriful.png",
+            "star_rating": "5",
+            "text": "<p>Such a wonderful selection of baby essentials and nursery items. Everything is thoughtfully curated, safe, and arrived super quick to Brisbane!</p>",
+            "author": "<p>Chloe T. — Brisbane, QLD</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16541486325d2f4d5b-0",
+        "16541486325d2f4d5b-1",
+        "16541486325d2f4d5b-2"
+      ],
+      "settings": {
+        "title": "Customer Reviews",
+        "image_crop": "circle",
+        "text_size": "medium"
+      }
+    },
+    "1776841995ca713fea": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_padding": true
+      }
+    },
+    "177684177197fc2636": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_padding": true
+      }
+    },
+    "dynamic_collection_list_JbTLU8": {
+      "type": "dynamic-collection-list",
+      "blocks": {
+        "collection_HLPCpV": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing",
+            "title": "Baby Clothing"
+          }
+        },
+        "collection_BfjePJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-furniture",
+            "title": "Baby Furniture"
+          }
+        },
+        "collection_g7BxXC": {
+          "type": "collection",
+          "settings": {
+            "collection": "prams",
+            "title": "Prams & Strollers"
+          }
+        },
+        "collection_dE6h3M": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-accessories",
+            "title": "Baby Accessories"
+          }
+        },
+        "collection_CmTwDy": {
+          "type": "collection",
+          "settings": {
+            "collection": "all",
+            "title": "All Products"
+          }
+        }
+      },
+      "block_order": [
+        "collection_HLPCpV",
+        "collection_BfjePJ",
+        "collection_g7BxXC",
+        "collection_dE6h3M",
+        "collection_CmTwDy"
+      ],
+      "name": "Collection list",
+      "settings": {
+        "title": "Explore Collections",
+        "thumbnail_columns_desktop": 5,
+        "thumbnail_columns_mobile": 2,
+        "image-crop": "circle",
+        "cta_label": "View All",
+        "cta_link": "shopify://collections",
+        "cta_button_style": "primary"
+      }
+    },
+    "17769107167d28b07b": {
+      "type": "apps",
+      "settings": {
+        "include_padding": true
+      }
+    },
+    "dynamic_highlights_banner_EyBkHB": {
+      "type": "dynamic-highlights-banner",
+      "blocks": {
+        "highlight_y43EaR": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-delivery",
+            "title": "Free Shipping",
+            "text": "<p>Across Australia on orders $99+</p>",
+            "link": ""
+          }
+        },
+        "highlight_By99mQ": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-pin",
+            "title": "Australian Store",
+            "text": "<p>28 Howell Cress, Truganina 3029</p>",
+            "link": ""
+          }
+        },
+        "highlight_LaWyTh": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-shield",
+            "title": "Baby Safe & Certified",
+            "text": "<p>Meets AU Safety Standards</p>",
+            "link": ""
+          }
+        },
+        "highlight_Y4ktgV": {
+          "type": "highlight",
+          "settings": {
+            "icon": "icon-return",
+            "title": "30-Day Returns",
+            "text": "<p>Hassle-free easy exchanges</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "highlight_y43EaR",
+        "highlight_By99mQ",
+        "highlight_LaWyTh",
+        "highlight_Y4ktgV"
+      ],
+      "name": "Highlights banner",
+      "settings": {
+        "section_spacing": false,
+        "section_width": "full-width",
+        "color": "#4d4d4d",
+        "icon_color": "#4a7875",
+        "background_color": "#ffffff"
+      }
+    },
+    "dynamic_blog_posts_yMH9hK": {
+      "type": "dynamic-blog-posts",
+      "name": "Blog posts",
+      "settings": {
+        "title": "Blog posts",
+        "blog": "",
+        "show_date": true,
+        "show_author": true,
+        "show_excerpt": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations",
+    "reviews",
+    "recently-viewed",
+    "1654148632dc95ede6",
+    "1776841995ca713fea",
+    "177684177197fc2636",
+    "dynamic_collection_list_JbTLU8",
+    "17769107167d28b07b",
+    "dynamic_highlights_banner_EyBkHB",
+    "dynamic_blog_posts_yMH9hK"
+  ]
+}
