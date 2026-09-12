@@ -32,7 +32,7 @@
         "filter-1"
       ],
       "settings": {
-        "show_collection_image": true,
+        "show_collection_image": false,
         "products_per_page_range": 24,
         "products_per_row": "4",
         "sort_by": true,
@@ -42,7 +42,7 @@
         "enable_subcollection": false,
         "show_product_count": false,
         "thumbnail_image": "product-image",
-        "image_crop": "original"
+        "image_crop": "circle"
       }
     },
     "static-recently-viewed": {

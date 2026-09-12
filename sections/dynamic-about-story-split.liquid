@@ -1,0 +1,393 @@
+{% assign bg_color = section.settings.background_color | default: '#fbfdfc' %}
+{% assign img_pos = section.settings.image_position | default: 'left' %}
+
+<section
+  class="about-split-section section-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="about-story-split"
+  style="--about-split-bg: {{ bg_color }};"
+>
+  <div class="about-split__container">
+    {% if section.settings.title != blank %}
+      <div class="about-split__header">
+        {% if section.settings.kicker != blank %}
+          <span class="about-split__kicker">{{ section.settings.kicker }}</span>
+        {% endif %}
+        <h2 class="about-split__main-title">{{ section.settings.title }}</h2>
+        <div class="about-split__divider" aria-hidden="true">
+          <svg width="40" height="10" viewBox="0 0 40 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5C8 9 14 1 20 5C26 9 32 1 38 5" stroke="{{ settings.color_links | default: '#4a7875' }}" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="about-split__inner about-split__inner--img-{{ img_pos }}">
+      <!-- Visual Side (Blob Image) -->
+      <div class="about-split__visual">
+        <div class="about-split__blob-card">
+          <div class="about-split__blob-aura"></div>
+          <div class="about-split__image-wrapper">
+            {% if section.settings.image != blank %}
+              <img
+                src="{{ section.settings.image | image_url: width: 900 }}"
+                srcset="{{ section.settings.image | image_url: width: 400 }} 400w, {{ section.settings.image | image_url: width: 700 }} 700w, {{ section.settings.image | image_url: width: 900 }} 900w"
+                sizes="(min-width: 990px) 40vw, 85vw"
+                alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+                class="about-split__image"
+                loading="lazy"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+              >
+            {% else %}
+              <div class="about-split__placeholder">
+                <svg viewBox="0 0 500 500" class="about-split__placeholder-svg" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="splitPlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#eaf2ef" />
+                      <stop offset="100%" stop-color="#d5e5e1" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="500" height="500" fill="url(#splitPlGrad)" />
+                  <!-- Organic Baby Outfit Silhouette -->
+                  <g transform="translate(140, 110) scale(0.45)" fill="{{ settings.color_headings | default: '#2f5054' }}" opacity="0.4">
+                    <path d="M120 100C150 70 200 60 256 60C312 60 362 70 392 100L440 180C450 195 440 215 425 220L370 200L370 410C370 425 355 440 340 440L172 440C157 440 142 425 142 410L142 200L87 220C72 215 62 195 72 180L120 100Z"/>
+                  </g>
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Side (Feature Points with Circular Badges) -->
+      <div class="about-split__content">
+        {% if section.blocks.size > 0 %}
+          <div class="about-split__features">
+            {% for block in section.blocks %}
+              <div class="about-split__feature-item" {{ block.shopify_attributes }}>
+                <div class="about-split__badge-icon">
+                  {% case block.settings.icon %}
+                    {% when 'shield' %}
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                      </svg>
+                    {% when 'heart' %}
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                      </svg>
+                    {% when 'feather' %}
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                        <line x1="16" y1="8" x2="2" y2="22"/>
+                        <line x1="17.5" y1="15" x2="9" y2="15"/>
+                      </svg>
+                    {% when 'check' %}
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    {% else %}
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                      </svg>
+                  {% endcase %}
+                </div>
+                <div class="about-split__feature-body">
+                  {% if block.settings.title != blank %}
+                    <h3 class="about-split__feature-title">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <div class="about-split__feature-desc rte">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-{{ section.id }} {
+    background-color: var(--about-split-bg);
+    padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-split__container {
+    max-width: {{ settings.layout_max_width | default: 1200 }}px;
+    margin: 0 auto;
+  }
+
+  .about-split__header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 4.5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-split__kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: {{ settings.color_links | default: '#4a7875' }};
+    margin-bottom: 0.4rem;
+  }
+
+  .about-split__main-title {
+    color: {{ settings.color_headings | default: '#2f5054' }};
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+
+  .about-split__divider {
+    margin: 0.2rem 0;
+  }
+
+  .about-split__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-split__inner {
+      grid-template-columns: 0.95fr 1.15fr;
+      gap: 4.5rem;
+    }
+
+    .about-split__inner--img-right {
+      grid-template-columns: 1.15fr 0.95fr;
+    }
+
+    .about-split__inner--img-right .about-split__visual {
+      order: 2;
+    }
+
+    .about-split__inner--img-right .about-split__content {
+      order: 1;
+    }
+  }
+
+  /* Organic Blob Card */
+  .about-split__visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-split__blob-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-split__blob-aura {
+    position: absolute;
+    inset: -12px;
+    background: radial-gradient(circle at 40% 60%, rgba(74, 120, 117, 0.15) 0%, rgba(244, 247, 246, 0.5) 60%, transparent 80%);
+    border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%;
+    z-index: 1;
+    filter: blur(10px);
+  }
+
+  .about-split__image-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(47, 80, 84, 0.1), 0 4px 12px rgba(0, 0, 0, 0.03);
+    background: {{ settings.color_footer_background | default: '#f4f7f6' }};
+    border: 3px solid #ffffff;
+  }
+
+  .about-split__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .about-split__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-split__placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Feature List & Badges */
+  .about-split__features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-split__feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+  }
+
+  .about-split__badge-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: {{ settings.color_footer_background | default: '#f4f7f6' }};
+    border: 1px solid rgba(74, 120, 117, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ settings.color_links | default: '#4a7875' }};
+    box-shadow: 0 4px 12px rgba(74, 120, 117, 0.08);
+    margin-top: 0.2rem;
+  }
+
+  .about-split__feature-body {
+    flex: 1;
+  }
+
+  .about-split__feature-title {
+    color: {{ settings.color_headings | default: '#2f5054' }};
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin: 0 0 0.45rem;
+    line-height: 1.35;
+  }
+
+  .about-split__feature-desc {
+    color: {{ settings.color_text | default: '#3a4a4b' }};
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .about-split__feature-desc p {
+    margin: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About - Story & Values",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fbfdfc"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow / Subtitle",
+      "default": "THE ANISBUB DIFFERENCE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "Why Organic?"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Side Organic Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Desktop Image Position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Story Feature Point",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "shield", "label": "Shield / Safety" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "feather", "label": "Feather" },
+            { "value": "check", "label": "Checkmark" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Gentle Where It Matters Most"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Feature Description",
+          "default": "<p>Our baby pieces are made from 100% certified organic cotton and pure bamboo fibers — a breathable touch that protects delicate skin from irritation and overheating.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About - Story & Values",
+      "category": "About",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Gentle Where It Matters Most",
+            "text": "<p>Crafted exclusively from pure organic cotton and natural fibers — ultra-breathable and gentle, eliminating irritants for peaceful sleeps and happy days.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Safe Comfort Naturally",
+            "text": "<p>Free from synthetic chemicals, toxic dyes, and harsh pesticides. Strictly tested and certified to ensure pure safety for tender newborn skin.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "More Than Clothing — A Beginning",
+            "text": "<p>Designed with mindful intention and subtle aesthetics to enrich your baby's earliest milestones with calmness, quality, and timeless style.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

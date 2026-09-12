@@ -9,18 +9,114 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "page",
-      "settings": {}
-    },
-    "story": {
-      "type": "dynamic-rich-text",
+    "about_hero": {
+      "type": "dynamic-about-hero",
       "settings": {
-        "width": "regular",
-        "title": "A Tender Touch Woven into Every Thread",
-        "heading_size": "large",
-        "text": "<p>Welcome to AnisBub (anisbub.com.au) — where tender fabrics meet thoughtful elegance for your little one.</p><p>Crafted with gentle precision, our collection embraces the delicate essence of infancy through mindful selection and subtle design. We believe that every baby deserves pure natural fibers — breathable, gentle against delicate skin, and crafted with refined tailoring that embodies pure serenity.</p><p>Located at 28 Howell Cress, Truganina, 3029, we proudly deliver across Australia and worldwide. From soft organic clothing and certified nursery furniture to smooth ergonomic prams and essential accessories, we thoughtfully curate every product for your peace of mind.</p>",
-        "text_alignment": "center"
+        "background_color": "#fbfdfc",
+        "show_botanical_decor": true,
+        "kicker": "NATURAL • GENTLE • THOUGHTFUL",
+        "title": "Welcome to AnisBub",
+        "text": "<p>At AnisBub, we believe every baby deserves pure, natural comfort. Born out of deep care for delicate infant skin, our mission is to craft thoughtfully designed essentials made from organic, breathable, and sustainably sourced materials.</p><p>Proudly Australian-owned, we accompany families from their very first precious moments with timeless quality and absolute peace of mind.</p>",
+        "text_alignment": "left",
+        "button_1_label": "Shop Our Range",
+        "button_1_link": "shopify://collections/all",
+        "button_2_label": "Our Promise",
+        "button_2_link": "#about-promise",
+        "image": "shopify://shop_images/baby-and-toddler-apparel-minimal-5.jpg",
+        "image_position": "right",
+        "badge_text": ""
+      }
+    },
+    "about_promise": {
+      "type": "dynamic-about-promise",
+      "blocks": {
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "icon": "feather",
+            "title": "Silky Soft & Breathable",
+            "text": "Ultra-soft natural organic cotton and pure bamboo fibers designed to let delicate newborn skin breathe effortlessly."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "icon": "shield",
+            "title": "Certified AU Safety",
+            "text": "Carefully selected and rigorously tested to meet strict Australian safety standards, 100% non-toxic and hypoallergenic."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "heart",
+            "title": "Crafted with Love",
+            "text": "Thoughtful, enduring craftsmanship made to withstand everyday adventures and be lovingly treasured as baby grows."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "kicker": "OUR PROMISE",
+        "title": "A Gentle Touch for Growing Lives",
+        "text": "<p>Every garment and baby essential in our collection is curated with mindful intention. We hold every stitch to uncompromising standards for purity, gentle softness, and safety — because your little one deserves the very best start in life.</p>"
+      }
+    },
+    "about_values": {
+      "type": "dynamic-about-story-split",
+      "blocks": {
+        "v1": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "title": "Gentle Where It Matters Most",
+            "text": "<p>Crafted exclusively from certified organic fibers — natural, gentle, and free from irritating chemical treatments to soothe sensitive skin day and night.</p>"
+          }
+        },
+        "v2": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Safe Comfort Naturally",
+            "text": "<p>Zero harsh dyes, heavy metals, or toxic finishes. Every product undergoes strict quality checks to guarantee total safety for tender hands and mouths.</p>"
+          }
+        },
+        "v3": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "More Than Clothing — A Beginning",
+            "text": "<p>We design pieces that capture the quiet beauty of early childhood, creating comfort-filled moments that parents and babies will forever cherish.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "settings": {
+        "background_color": "#fbfdfc",
+        "kicker": "THE ANISBUB STANDARD",
+        "title": "Why Organic?",
+        "image": "shopify://shop_images/mobile_hero.webp",
+        "image_position": "left"
+      }
+    },
+    "about_quote": {
+      "type": "dynamic-about-quote",
+      "settings": {
+        "background_color": "#f4f7f6",
+        "show_botanical_decor": true,
+        "kicker": "OUR PHILOSOPHY",
+        "title": "Our Belief",
+        "quote": "“We believe nature knows best. An infant's journey begins with warmth, gentle touch, and conscious choices.”",
+        "subtext": "— For your baby, for your peace of mind, and for the world they grow up in."
       }
     },
     "highlights": {
@@ -30,6 +126,7 @@
           "type": "highlight",
           "settings": {
             "icon": "icon-delivery",
+            "custom_icon_svg": "",
             "title": "Free Delivery Australia-Wide",
             "text": "<p>On all orders over $99</p>",
             "link": ""
@@ -38,7 +135,8 @@
         "h2": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-shield",
+            "icon": "icon-award-trophy",
+            "custom_icon_svg": "",
             "title": "Certified Safe & Non-Toxic",
             "text": "<p>Meets strict AU/NZ safety standards</p>",
             "link": ""
@@ -48,6 +146,7 @@
           "type": "highlight",
           "settings": {
             "icon": "icon-pin",
+            "custom_icon_svg": "",
             "title": "Australian Store",
             "text": "<p>28 Howell Cress, Truganina 3029</p>",
             "link": ""
@@ -56,7 +155,8 @@
         "h4": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-return",
+            "icon": "icon-chat-alternate",
+            "custom_icon_svg": "",
             "title": "30-Day Easy Returns",
             "text": "<p>Hassle-free exchanges for peace of mind</p>",
             "link": ""
@@ -71,12 +171,15 @@
       ],
       "settings": {
         "section_spacing": false,
+        "border_top_bottom": true,
         "section_width": "full-width",
-        "icon_layout": "center",
         "color": "#2f5054",
+        "subtext_color": "#4a7875",
         "icon_color": "#4a7875",
+        "border_color": "#dbe7e5",
         "background_color": "#f4f7f6",
-        "mobile_layout": "grid"
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "newsletter": {
@@ -90,8 +193,10 @@
     }
   },
   "order": [
-    "main",
-    "story",
+    "about_hero",
+    "about_promise",
+    "about_values",
+    "about_quote",
     "highlights",
     "newsletter"
   ]
