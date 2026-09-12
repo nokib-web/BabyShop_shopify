@@ -22,8 +22,8 @@
             "color": "#ffffff",
             "link": "",
             "text_alignment": "left",
-            "button_one_label": "Shop Clothing",
-            "button_one_link": "shopify://collections/clothing",
+            "button_one_label": "Shop Now",
+            "button_one_link": "shopify://collections/all",
             "button_one_style": "primary",
             "button_two_label": "Explore Prams",
             "button_two_link": "shopify://collections/prams",
@@ -159,35 +159,35 @@
         "collection_TkHjPK": {
           "type": "collection",
           "settings": {
-            "collection": "baby-and-toddler-apparel-example-products",
+            "collection": "boys-clothes",
             "title": "Baby Clothing"
           }
         },
         "collection_4h3m4c": {
           "type": "collection",
           "settings": {
-            "collection": "baby-and-toddler-apparel-example-products",
+            "collection": "baby-furniture",
             "title": "Baby Furniture"
           }
         },
         "collection_rUhg6d": {
           "type": "collection",
           "settings": {
-            "collection": "baby-and-toddler-apparel-example-products",
+            "collection": "prams",
             "title": "Prams & Strollers"
           }
         },
         "collection_XpfRHF": {
           "type": "collection",
           "settings": {
-            "collection": "baby-and-toddler-apparel-example-products",
+            "collection": "baby-accessories",
             "title": "Baby Accessories"
           }
         },
         "collection_KBxn7i": {
           "type": "collection",
           "settings": {
-            "collection": "baby-and-toddler-apparel-example-products",
+            "collection": "girls-clothes",
             "title": "Girls' Clothes"
           }
         }
@@ -338,23 +338,33 @@
         "background_color": "#edf7fc",
         "heading_color": "#2f5054",
         "subheading_color": "#4a7875",
-        "price_color": "#4a7875",
         "image": "shopify://shop_images/ba5-4.jpg",
         "image_overlay_heading": "Must-haves for\nDaily Baby Care",
         "image_link": "",
         "overlay_color": "#000000",
         "overlay_opacity": 15,
-        "collection": "baby-and-toddler-apparel-example-products",
+        "collection": "baby-accessories",
         "product_1": "",
         "product_2": "",
         "button_label": "Shop Baby Accessories",
         "button_link": "shopify://collections/baby-accessories",
-        "button_bg": "#4a7875",
-        "button_color": "#ffffff",
+        "cta_button_style": "primary",
         "padding_top": 70,
         "padding_bottom": 70,
         "margin_top": 40,
         "margin_bottom": 40
+      }
+    },
+    "dynamic_featured_collection_T4QcRL": {
+      "type": "dynamic-featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "Customer Favourites",
+        "layout": "grid",
+        "collection": "baby-and-toddler-apparel-example-products",
+        "product_count": 8,
+        "cta_label": "Shop all new arrivals",
+        "cta_button_style": "primary"
       }
     },
     "dynamic_shoppable_image": {
@@ -518,18 +528,6 @@
         "desktop_alignment": "left",
         "mobile_alignment": "top"
       }
-    },
-    "dynamic_featured_collection_T4QcRL": {
-      "type": "dynamic-featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "title": "Customer Favourites",
-        "layout": "grid",
-        "collection": "baby-and-toddler-apparel-example-products",
-        "product_count": 8,
-        "cta_label": "Shop all new arrivals",
-        "cta_button_style": "primary"
-      }
     }
   },
   "order": [
@@ -540,10 +538,10 @@
     "dynamic_promo_mosaic_7gr4cj",
     "dynamic_featured_collection_Cqyr9G",
     "dynamic_image_with_products",
+    "dynamic_featured_collection_T4QcRL",
     "dynamic_shoppable_image",
     "dynamic_featured_collection-2",
     "dynamic_testimonials",
-    "165343907407d318c7",
-    "dynamic_featured_collection_T4QcRL"
+    "165343907407d318c7"
   ]
 }
