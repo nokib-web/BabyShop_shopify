@@ -12,7 +12,6 @@
     margin-top: {{ section.settings.margin_top | default: 40 }}px;
     margin-bottom: {{ section.settings.margin_bottom | default: 40 }}px;
     width: 100%;
-    overflow: hidden;
     clear: both;
     position: relative;
     z-index: 1;
@@ -33,13 +32,10 @@
   }
 
   .image-with-products__{{ section.id }} .iwp-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: {{ section.settings.heading_color | default: '#2f5054' }};
     margin: 0 0 8px 0;
-    line-height: 1.25;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    {% if section.settings.heading_color != blank %}
+      color: {{ section.settings.heading_color }};
+    {% endif %}
   }
 
   .image-with-products__{{ section.id }} .iwp-subheading {
@@ -67,19 +63,19 @@
     }
   {% endif %}
 
-  /* Hero Banner Card - Generous Height */
+  /* Hero Banner Card */
   .image-with-products__{{ section.id }} .iwp-hero-card {
     position: relative;
-    border-radius: 24px;
+    border-radius: 8px;
     overflow: hidden;
-    min-height: 500px;
+    min-height: 480px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #8da6a3;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     text-decoration: none;
     box-sizing: border-box;
   }
@@ -134,111 +130,19 @@
   }
 
   .image-with-products__{{ section.id }} .iwp-products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    flex-grow: 1;
-    align-items: stretch;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
 
-  /* Individual Product Card - Generous Height & Crisp Padding */
-  .image-with-products__{{ section.id }} .iwp-product-card {
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 32px 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    min-height: 420px;
-    height: 100%;
-    box-sizing: border-box;
-    position: relative;
-    justify-content: space-between;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-media {
-    width: 100%;
-    height: 230px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-img {
-    max-height: 210px;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.35s ease;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-card:hover .iwp-product-img {
-    transform: scale(1.05);
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-placeholder-svg {
-    width: 100px;
-    height: 100px;
-    color: #4a7875;
-    opacity: 0.65;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-placeholder-svg svg {
-    width: 80px;
-    height: 80px;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    justify-content: flex-end;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: {{ section.settings.heading_color | default: '#2f5054' }};
-    line-height: 1.4;
-    margin: 0 0 10px 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-price {
-    font-size: 16px;
-    font-weight: 700;
-    color: {{ section.settings.price_color | default: '#4a7875' }};
-    margin: 0;
-  }
-
-  .image-with-products__{{ section.id }} .iwp-product-price-compare {
-    text-decoration: line-through;
-    color: #999999;
-    font-weight: 400;
-    font-size: 13px;
-    margin-left: 6px;
+  .image-with-products__{{ section.id }} .iwp-products-grid .productgrid--item {
+    width: 100% !important;
+    margin: 0 !important;
+    max-width: none !important;
   }
 
   /* Bottom CTA Button */
@@ -248,25 +152,7 @@
   }
 
   .image-with-products__{{ section.id }} .iwp-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 40px;
-    border-radius: 30px;
-    background-color: {{ section.settings.button_bg | default: '#4a7875' }};
-    color: {{ section.settings.button_color | default: '#ffffff' }};
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 16px rgba(74, 120, 117, 0.25);
-  }
-
-  .image-with-products__{{ section.id }} .iwp-btn:hover {
-    filter: brightness(0.92);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(74, 120, 117, 0.35);
-    color: {{ section.settings.button_color | default: '#ffffff' }};
+    display: inline-block;
   }
 
   /* Responsive Adjustments */
@@ -304,17 +190,12 @@
       margin-bottom: 24px;
     }
 
-    .image-with-products__{{ section.id }} .iwp-title {
-      font-size: 26px;
-    }
-
     .image-with-products__{{ section.id }} .iwp-subheading {
       font-size: 14px;
     }
 
     .image-with-products__{{ section.id }} .iwp-hero-card {
-      min-height: 300px;
-      border-radius: 18px;
+      min-height: 280px;
     }
 
     .image-with-products__{{ section.id }} .iwp-hero-text {
@@ -322,39 +203,11 @@
     }
 
     .image-with-products__{{ section.id }} .iwp-products-grid {
-      gap: 14px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-product-card {
-      padding: 20px 12px;
-      border-radius: 18px;
-      min-height: 320px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-product-media {
-      height: 160px;
-      margin-bottom: 12px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-product-img {
-      max-height: 150px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-product-title {
-      font-size: 13px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-product-price {
-      font-size: 14px;
+      gap: 12px !important;
     }
 
     .image-with-products__{{ section.id }} .iwp-action-wrapper {
       margin-top: 28px;
-    }
-
-    .image-with-products__{{ section.id }} .iwp-btn {
-      padding: 11px 32px;
-      font-size: 14px;
     }
   }
 
@@ -368,14 +221,14 @@
   }
 </style>
 
-<section class="image-with-products__{{ section.id }}">
+<section class="image-with-products__{{ section.id }}" data-section-id="{{ section.id }}">
   <div class="iwp-container">
     
     {% comment %} Mobile Header (Shown at top on smaller screens) {% endcomment %}
     {% if section.settings.title != blank or section.settings.subheading != blank %}
       <div class="iwp-header iwp-mobile-header">
         {% if section.settings.title != blank %}
-          <h2 class="iwp-title">{{ section.settings.title | escape }}</h2>
+          <h2 class="home-section--title iwp-title">{{ section.settings.title | escape }}</h2>
         {% endif %}
         {% if section.settings.subheading != blank %}
           <p class="iwp-subheading">{{ section.settings.subheading | escape }}</p>
@@ -430,7 +283,7 @@
         {% if section.settings.title != blank or section.settings.subheading != blank %}
           <div class="iwp-header iwp-desktop-header">
             {% if section.settings.title != blank %}
-              <h2 class="iwp-title">{{ section.settings.title | escape }}</h2>
+              <h2 class="home-section--title iwp-title">{{ section.settings.title | escape }}</h2>
             {% endif %}
             {% if section.settings.subheading != blank %}
               <p class="iwp-subheading">{{ section.settings.subheading | escape }}</p>
@@ -438,7 +291,7 @@
           </div>
         {% endif %}
 
-        <div class="iwp-products-grid">
+        <ul class="home-section--content productgrid--items iwp-products-grid" data-layout="grid">
           
           {%- assign has_custom_products = false -%}
           
@@ -447,43 +300,15 @@
             {%- for block in section.blocks -%}
               {%- assign prod = block.settings.product -%}
               {%- if prod != blank -%}
-                <a href="{{ prod.url }}" class="iwp-product-card" {{ block.shopify_attributes }}>
-                  <div class="iwp-product-media">
-                    {% if prod.featured_media != blank %}
-                      <img
-                        class="iwp-product-img"
-                        src="{{ prod.featured_media | image_url: width: 500 }}"
-                        alt="{{ prod.title | escape }}"
-                        loading="lazy"
-                      >
-                    {% else %}
-                      <div class="iwp-product-placeholder-svg">
-                        {% render 'icon-library', id: 'icon-bag' %}
-                      </div>
-                    {% endif %}
-                  </div>
-                  <div class="iwp-product-info">
-                    <h3 class="iwp-product-title">{{ prod.title }}</h3>
-                    <div class="iwp-product-price">
-                      {{ prod.price | money }}
-                      {% if prod.compare_at_price > prod.price %}
-                        <span class="iwp-product-price-compare">{{ prod.compare_at_price | money }}</span>
-                      {% endif %}
-                    </div>
-                  </div>
-                </a>
+                {%
+                  render 'product-grid-item',
+                  product: prod
+                %}
               {%- else -%}
-                <div class="iwp-product-card" {{ block.shopify_attributes }}>
-                  <div class="iwp-product-media">
-                    <div class="iwp-product-placeholder-svg">
-                      {% render 'icon-library', id: 'icon-bag' %}
-                    </div>
-                  </div>
-                  <div class="iwp-product-info">
-                    <h3 class="iwp-product-title">Organic Baby Swaddle</h3>
-                    <div class="iwp-product-price">$39.95</div>
-                  </div>
-                </div>
+                {%
+                  render 'product-grid-item',
+                  product: false
+                %}
               {%- endif -%}
             {%- endfor -%}
           
@@ -492,102 +317,42 @@
             
             {%- if section.settings.product_1 != blank -%}
               {%- assign prod1 = section.settings.product_1 -%}
-              <a href="{{ prod1.url }}" class="iwp-product-card">
-                <div class="iwp-product-media">
-                  {% if prod1.featured_media != blank %}
-                    <img class="iwp-product-img" src="{{ prod1.featured_media | image_url: width: 500 }}" alt="{{ prod1.title | escape }}" loading="lazy">
-                  {% else %}
-                    <div class="iwp-product-placeholder-svg">{% render 'icon-library', id: 'icon-bag' %}</div>
-                  {% endif %}
-                </div>
-                <div class="iwp-product-info">
-                  <h3 class="iwp-product-title">{{ prod1.title }}</h3>
-                  <div class="iwp-product-price">
-                    {{ prod1.price | money }}
-                    {% if prod1.compare_at_price > prod1.price %}
-                      <span class="iwp-product-price-compare">{{ prod1.compare_at_price | money }}</span>
-                    {% endif %}
-                  </div>
-                </div>
-              </a>
+              {%
+                render 'product-grid-item',
+                product: prod1
+              %}
             {%- endif -%}
 
             {%- if section.settings.product_2 != blank -%}
               {%- assign prod2 = section.settings.product_2 -%}
-              <a href="{{ prod2.url }}" class="iwp-product-card">
-                <div class="iwp-product-media">
-                  {% if prod2.featured_media != blank %}
-                    <img class="iwp-product-img" src="{{ prod2.featured_media | image_url: width: 500 }}" alt="{{ prod2.title | escape }}" loading="lazy">
-                  {% else %}
-                    <div class="iwp-product-placeholder-svg">{% render 'icon-library', id: 'icon-bag' %}</div>
-                  {% endif %}
-                </div>
-                <div class="iwp-product-info">
-                  <h3 class="iwp-product-title">{{ prod2.title }}</h3>
-                  <div class="iwp-product-price">
-                    {{ prod2.price | money }}
-                    {% if prod2.compare_at_price > prod2.price %}
-                      <span class="iwp-product-price-compare">{{ prod2.compare_at_price | money }}</span>
-                    {% endif %}
-                  </div>
-                </div>
-              </a>
+              {%
+                render 'product-grid-item',
+                product: prod2
+              %}
             {%- endif -%}
 
           {%- elsif section.settings.collection != blank and collections[section.settings.collection].products.size > 0 -%}
             {%- assign has_custom_products = true -%}
             {%- assign col_products = collections[section.settings.collection].products -%}
             {%- for prod in col_products limit: 2 -%}
-              <a href="{{ prod.url }}" class="iwp-product-card">
-                <div class="iwp-product-media">
-                  {% if prod.featured_media != blank %}
-                    <img class="iwp-product-img" src="{{ prod.featured_media | image_url: width: 500 }}" alt="{{ prod.title | escape }}" loading="lazy">
-                  {% else %}
-                    <div class="iwp-product-placeholder-svg">{% render 'icon-library', id: 'icon-bag' %}</div>
-                  {% endif %}
-                </div>
-                <div class="iwp-product-info">
-                  <h3 class="iwp-product-title">{{ prod.title }}</h3>
-                  <div class="iwp-product-price">
-                    {{ prod.price | money }}
-                    {% if prod.compare_at_price > prod.price %}
-                      <span class="iwp-product-price-compare">{{ prod.compare_at_price | money }}</span>
-                    {% endif %}
-                  </div>
-                </div>
-              </a>
+              {%
+                render 'product-grid-item',
+                product: prod
+              %}
             {%- endfor -%}
 
           {%- endif -%}
 
           {%- unless has_custom_products -%}
-            {% comment %} Template Default Placeholder Products (AnisBub Baby Essentials) {% endcomment %}
-            <div class="iwp-product-card">
-              <div class="iwp-product-media">
-                <div class="iwp-product-placeholder-svg">
-                  {% render 'icon-library', id: 'icon-delivery-package' %}
-                </div>
-              </div>
-              <div class="iwp-product-info">
-                <h3 class="iwp-product-title">Organic Cotton Swaddle Wrap</h3>
-                <div class="iwp-product-price">$39.95</div>
-              </div>
-            </div>
-
-            <div class="iwp-product-card">
-              <div class="iwp-product-media">
-                <div class="iwp-product-placeholder-svg">
-                  {% render 'icon-library', id: 'icon-gift' %}
-                </div>
-              </div>
-              <div class="iwp-product-info">
-                <h3 class="iwp-product-title">Silicone Teething & Feeding Set</h3>
-                <div class="iwp-product-price">$29.95</div>
-              </div>
-            </div>
+            {% for i in (1..2) %}
+              {%
+                render 'product-grid-item',
+                product: false
+              %}
+            {% endfor %}
           {%- endunless -%}
 
-        </div>
+        </ul>
       </div>
 
     </div>
@@ -595,7 +360,10 @@
     {% comment %} Bottom CTA Button {% endcomment %}
     {% if section.settings.button_label != blank %}
       <div class="iwp-action-wrapper">
-        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="iwp-btn">
+        <a
+          href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+          class="button-{{ section.settings.cta_button_style | default: 'primary' }} featured-collection__button iwp-btn"
+        >
           {{ section.settings.button_label | escape }}
         </a>
       </div>
@@ -603,6 +371,8 @@
 
   </div>
 </section>
+
+{% render 'quick-shop' %}
 
 {% schema %}
 {
@@ -664,12 +434,6 @@
       "default": "#4a7875"
     },
     {
-      "type": "color",
-      "id": "price_color",
-      "label": "Product Price Color",
-      "default": "#4a7875"
-    },
-    {
       "type": "header",
       "content": "Hero Feature Image Card"
     },
@@ -725,7 +489,7 @@
     },
     {
       "type": "header",
-      "content": "Bottom Button"
+      "content": "Call to action"
     },
     {
       "type": "text",
@@ -739,16 +503,20 @@
       "label": "Button Link"
     },
     {
-      "type": "color",
-      "id": "button_bg",
-      "label": "Button Background Color",
-      "default": "#4a7875"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button Text Color",
-      "default": "#ffffff"
+      "type": "select",
+      "id": "cta_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
     },
     {
       "type": "header",
