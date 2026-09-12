@@ -37547,6 +37547,26 @@ class DynamicFeaturedCollection {
   }
 
 }
+
+class DynamicImageWithProducts {
+  constructor(section) {
+    this.section = section;
+    this.productItems = [];
+    const productItemsEls = section.el.querySelectorAll('[data-product-item]');
+
+    for (let i = 0; i < productItemsEls.length; i++) {
+      this.productItems.push(new ProductGridItem({
+        el: productItemsEls[i],
+        id: section.id,
+        lazy: false
+      }));
+    }
+  }
+
+  onSectionUnload() {
+    this.productItems.forEach(productItem => productItem.unload());
+  }
+}
 ;// CONCATENATED MODULE: ./source/scripts/sections/DynamicMenuList.js
 
 
@@ -43506,6 +43526,9 @@ const initEmpire = () => {
     lazy: true
   });
   sections.register('dynamic-featured-collection', section => new DynamicFeaturedCollection(section), {
+    lazy: true
+  });
+  sections.register('dynamic-image-with-products', section => new DynamicImageWithProducts(section), {
     lazy: true
   });
   sections.register('dynamic-featured-product', section => new DynamicProduct(section), {

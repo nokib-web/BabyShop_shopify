@@ -94,7 +94,6 @@
         "16541486325d2f4d5b-0": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/pexels-lalit-verma-2148544578-30154151.jpg",
             "star_rating": "5",
             "text": "<p>Exceptional quality and beautifully soft on our newborn's skin. The swaddles and clothing washed wonderfully with no shrinking. Fast shipping to Sydney!</p>",
             "author": "<p>Olivia M. — Sydney, NSW</p>"
@@ -103,7 +102,6 @@
         "16541486325d2f4d5b-1": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/pexels-emirhan-altekin-392050471-15878991.jpg",
             "star_rating": "5",
             "text": "<p>We bought our pram and cot mattress from here. Top quality, very sturdy, and arrived in perfect condition. Fantastic customer support for Aussie parents.</p>",
             "author": "<p>James & Sarah — Melbourne, VIC</p>"
@@ -112,7 +110,6 @@
         "16541486325d2f4d5b-2": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/logo-soriful.png",
             "star_rating": "5",
             "text": "<p>Such a wonderful selection of baby essentials and nursery items. Everything is thoughtfully curated, safe, and arrived super quick to Brisbane!</p>",
             "author": "<p>Chloe T. — Brisbane, QLD</p>"
@@ -214,6 +211,7 @@
           "type": "highlight",
           "settings": {
             "icon": "icon-delivery",
+            "custom_icon_svg": "",
             "title": "Free Shipping",
             "text": "<p>Across Australia on orders $99+</p>",
             "link": ""
@@ -223,6 +221,7 @@
           "type": "highlight",
           "settings": {
             "icon": "icon-pin",
+            "custom_icon_svg": "",
             "title": "Australian Store",
             "text": "<p>28 Howell Cress, Truganina 3029</p>",
             "link": ""
@@ -231,7 +230,8 @@
         "highlight_LaWyTh": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-shield",
+            "icon": "icon-heart",
+            "custom_icon_svg": "",
             "title": "Baby Safe & Certified",
             "text": "<p>Meets AU Safety Standards</p>",
             "link": ""
@@ -240,7 +240,8 @@
         "highlight_Y4ktgV": {
           "type": "highlight",
           "settings": {
-            "icon": "icon-return",
+            "icon": "icon-transfer",
+            "custom_icon_svg": "",
             "title": "30-Day Returns",
             "text": "<p>Hassle-free easy exchanges</p>",
             "link": ""
@@ -256,10 +257,15 @@
       "name": "Highlights banner",
       "settings": {
         "section_spacing": false,
+        "border_top_bottom": true,
         "section_width": "full-width",
         "color": "#4d4d4d",
+        "subtext_color": "#4a7875",
         "icon_color": "#4a7875",
-        "background_color": "#ffffff"
+        "border_color": "#dbe7e5",
+        "background_color": "#ffffff",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "dynamic_blog_posts_yMH9hK": {
